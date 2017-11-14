@@ -10,6 +10,7 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ### 2017-11-14
 
+* Launched pre-processing of `ds114-small` and `ds114-small-onevoxel` on CBRAIN (tasks #471072 and #471075), Graham cluster. Small datasets only have two subjects. It looks like Niak will pre-process the two sessions in each subject.
 * Fixed error with Niak pre-processing in CBRAIN. The dataset had an extra level of directories that prevented Niak from finding `dataset_description.json`.
 * Used BIDS dataset `ds114` instead of `ds001` because `ds001` has no information about slice timing.
 * Reviewed the parameters of the Niak pre-processing pipelines and decided to use the default values except for "Slice timing type scanner".
