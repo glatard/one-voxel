@@ -9,6 +9,23 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ## Log
 
+### 2017-11-15
+
+* We need a better distance than just the NRMSE to compare images, as
+  it is too global. Visually, we often are interested in local
+  measures. We could use the max distance (e.g., NRMSE) between blocks
+  of size, say 1/10 of the image. 
+
+* To compare the effect of the perturbation on file A and
+  file B of the pipeline, we should normalize whatever distance is
+  applied to file A by its standard deviation computed /on all the
+  subjects/. The normalized distance of file A could then be compared
+  to the normalized distance on file B. See how this relates to the
+  Mahanalobis norm.
+
+* Read https://en.wikipedia.org/wiki/Numerical_stability and
+  references. Very instructive.
+
 ### 2017-11-14
 
 * Differences between `regular` and `onevoxel`: see `results/verifyfiles`
