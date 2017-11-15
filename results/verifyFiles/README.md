@@ -26,3 +26,10 @@
 * compared `anat/sub01/anat_sub01_classify_stereolin.nii.gz`
 
 ![alt text](https://github.com/glatard/one-voxel/raw/master/results/comp_anat_sub01_classify_stereolin.gif)
+
+```
+fslview onevoxel/ds114-small/anat/sub01/anat_sub01_classify_stereolin.nii.gz # take screenshot in 1.png
+fslview regular/ds114-small/anat/sub01/anat_sub01_classify_stereolin.nii.gz # take screenshot in 2.png
+convert -loop 0 1.png 2.png comp.gif
+convert comp.gif -coalesce -repage 0x0 -crop 614x660+478+927 +repage comp_anat_sub01_classify_stereolin.gif
+```
