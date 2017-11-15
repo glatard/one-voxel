@@ -23,6 +23,11 @@
        dim2           260
        dim3           218
      ```
+
+* compared `anat/sub01/anat_sub01_nuc_stereonl.nii.gz`
+
+![alt text](https://github.com/glatard/one-voxel/raw/master/results/anat_sub01_nuc_stereonl.gif)
+
 * compared `anat/sub01/anat_sub01_classify_stereolin.nii.gz`
 
 ![alt text](https://github.com/glatard/one-voxel/raw/master/results/comp_anat_sub01_classify_stereolin.gif)
