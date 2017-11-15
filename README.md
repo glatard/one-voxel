@@ -14,7 +14,7 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 * Results
 
   | ds114-small | ds114-small-onevoxel |
-  --------------------------------------
+  --------------|:--------------------:|
   | results-directory-471071-783976569.niak | results-directory-471077-897624584.niak |
 
 
