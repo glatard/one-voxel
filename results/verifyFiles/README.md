@@ -24,6 +24,10 @@
        dim3           218
      ```
 
+* compared `func/sub01/fmri_sub01_sesstest_taskrest.nii.gz`:
+
+![alt text](https://github.com/glatard/one-voxel/raw/master/results/fmri_sub01_sesstest_taskrest.gif)
+
 * compared `anat/sub01/anat_sub01_nuc_stereonl.nii.gz`
 
 ![alt text](https://github.com/glatard/one-voxel/raw/master/results/anat_sub01_nuc_stereonl.gif)
