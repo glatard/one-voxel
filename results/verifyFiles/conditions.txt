@@ -1,0 +1,2 @@
+/home/glatard/code/one-voxel/results/onevoxel
+/home/glatard/code/one-voxel/results/regular

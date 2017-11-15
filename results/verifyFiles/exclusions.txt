@@ -1,0 +1,2 @@
+anat/sub01/anat_sub01_nativefunc_hires.nii.gz
+anat/sub02/anat_sub02_nativefunc_hires.nii.gz
