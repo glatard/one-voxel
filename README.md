@@ -11,7 +11,9 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ### 2017-11-14
 
-* Results
+* Differences between `regular` and `onevoxel`: see `results/verifyfiles`
+
+* Pipeline results
 
   | ds114-small | ds114-small-onevoxel |
   --------------|:--------------------:|
