@@ -9,6 +9,16 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ## Log
 
+### 2017-11-16
+
+Priority  list following the [first results](https://github.com/glatard/one-voxel/tree/master/results/verifyFiles):
+
+- [] Bootstrap motion correction
+- [] Test on more subjects
+- [] Test with feat and SPM
+- [] Comparison with effect of the OS
+- [] Define a proper stability measure
+
 ### 2017-11-15
 
 * Following Slack thread with @pbellec: the instability of motion estimation needs to be fixed; it could be fixed by averaging registrations. 
