@@ -11,6 +11,10 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ### 2017-11-15
 
+* Following Slack thread with @pbellec: the instability of motion estimation needs to be fixed; it could be fixed by averaging registrations. 
+
+* It would be interesting to compare the one-voxel effect to the effect of the OS.
+
 * We need a better distance than just the NRMSE to compare images, as
   it is too global. Visually, we often are interested in local
   measures. We could use the max distance (e.g., NRMSE) between blocks
