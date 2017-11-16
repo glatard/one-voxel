@@ -13,11 +13,11 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 Priority  list following the [first results](https://github.com/glatard/one-voxel/tree/master/results/verifyFiles):
 
-- [] Bootstrap motion correction
-- [] Test on more subjects
-- [] Test with feat and SPM
-- [] Comparison with effect of the OS
-- [] Define a proper stability measure
+- [ ] Bootstrap motion correction
+- [ ] Test on more subjects
+- [ ] Test with feat and SPM
+- [ ] Comparison with effect of the OS
+- [ ] Define a proper stability measure
 
 ### 2017-11-15
 
