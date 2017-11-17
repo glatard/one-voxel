@@ -4,13 +4,11 @@
 
   As observed
  [there](https://github.com/glatard/one-voxel/tree/master/verifyFiles)
- (see last animation), the one-voxel perturbation had an effect on
- motion correction.  Here we observe the one-voxel perturbation has no
- effect on rigid registration when executed independently from motion
- correction. In motion correction, the initialization of registration
- /n/ from the transformation resulting from registration /n-1/ creates
- instabilities. Registering the volumes independently from each other
- fixes instabilities.
+ (see last animation), the one-voxel perturbation has an effect on
+ motion correction. The instability comes from the initialization of
+ registration /n/ from the transformation resulting from registration
+ /n-1/ in the time series. Registering the volumes independently from
+ each other fixes the issue.
 
 ## Implementation
 
