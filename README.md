@@ -2,11 +2,6 @@
 
 A one-voxel experiment with the Niak pre-processing pipeline.
 
-## Tools
-
-* `one-voxel.py`: changes the intensity of the central voxels of all
-  the volumes in an image sequence by 1%.
-
 ## Log
 
 ### 2017-11-16
