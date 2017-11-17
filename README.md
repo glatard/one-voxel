@@ -4,6 +4,14 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ## Log
 
+### 2017-11-17
+
+* The instability comes from the initialization of registration /n/
+  from the transformation resulting from registration /n-1/ in the
+  time series. Registering the volumes independently from each other
+  fixes the instability. See details
+  [here](https://github.com/glatard/one-voxel/tree/master/robust-motion).
+
 ### 2017-11-16
 
 * Didn't manage to reproduce variability in the transformations
