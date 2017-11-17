@@ -8,8 +8,7 @@
  motion correction. The instability comes from the initialization of
  registration /n/ from the transformation resulting from registration
  /n-1/ in the time series. Registering the volumes independently from
- each other fixes the instability (but it may of course be less
- accurate).
+ each other fixes the instability.
 
 ## Implementation
 
@@ -70,8 +69,13 @@ differences become negligible:
   --------------|:---------|
   | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff_idinit-0.png) | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff_idinit-1.png) |
 
+# Conclusion
 
-Conclusion: the recursive initialization is responsible for instabilities.
+The recursive initialization is responsible for
+instabilities. Initializing volumes independently from each other
+fixes the issue, but it may also be less accurate. Bootstraping the
+motion correction pipeline (not only the rigid registraton) may be a
+solution.
 
 ## Command log
 
