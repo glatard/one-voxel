@@ -11,9 +11,19 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ### 2017-11-16
 
-Priority  list following the [first results](https://github.com/glatard/one-voxel/tree/master/results/verifyFiles):
+* Didn't manage to reproduce variability in the transformations
+  produced by `minctrac` between 2 volumes of
+  `sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz` in
+  `ds114`. Most likely, this is because *rigid registration is not
+  unstable, motion correction is*. If this is confirmed, the fix
+  should rather be to avoid initializing registration n with
+  transformation n-1 and to iteratively optimize /all/ registrations. 
 
-- [ ] Bootstrap motion correction
+* Started a script to average rigid transformations, to be used to bootstrap rigid registration (`robust-motion/average_transfo.py`). Based on the framework in [there](https://link.springer.com/chapter/10.1007%2F11866763_19?LI=true).
+
+* Priority  list following the [first results](https://github.com/glatard/one-voxel/tree/master/results/verifyFiles):
+
+- [ ] Bootstrap rigid registration
 - [ ] Test on more subjects
 - [ ] Test with feat and SPM
 - [ ] Comparison with effect of the OS
