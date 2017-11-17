@@ -12,9 +12,12 @@ A one-voxel experiment with the Niak pre-processing pipeline.
   `ds114`. Most likely, this is because *rigid registration is not
   unstable, motion correction is*. If this is true, feat and
   [fmriprep](http://fmriprep.readthedocs.io/en/stable/workflows.html)
-  should both be impacted by the same problem since they use [mcflirt](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT)
-  which also initializes n from n-1. But SPM doesn't seem to be doing
-  that (spm_realign).
+  should both be impacted by the same problem since they use
+  [mcflirt](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT) which also
+  initializes n from n-1. But SPM doesn't seem to be doing that
+  (spm_realign). Unclear if AFNI's
+  [3dvolreg](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dvolreg.html),
+  used by C-PAC, does that.
 
 * Started a script to average rigid transformations, to be used to bootstrap rigid registration (`robust-motion/average_transfo.py`). Based on the framework in [there](https://link.springer.com/chapter/10.1007%2F11866763_19?LI=true).
 
