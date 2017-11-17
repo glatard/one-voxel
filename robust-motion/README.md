@@ -1,6 +1,6 @@
 # 2017-11-17
 
-# tl;dr
+## tl;dr
 
   As observed
  [there](https://github.com/glatard/one-voxel/tree/master/verifyFiles)
@@ -10,7 +10,7 @@
  /n-1/ in the time series. Registering the volumes independently from
  each other fixes the instability.
 
-# Implementation
+## Implementation
 
 I implemented a basic motion correction procedure in
   `motion-correct.sh`, to facilitate experimentation outside of the
@@ -26,7 +26,7 @@ minctracc <source_vol> <target_vol> -clobber -xcorr -forward -lsq6 -speckle 0 -e
 
 ```
 
-# Validation
+## Validation
 
 I tested `motion-correct.sh` on the same subject as used
   [there](https://github.com/glatard/one-voxel/tree/master/verifyFiles) and
@@ -69,7 +69,7 @@ differences become negligible:
   --------------|:---------|
   | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff_idinit-0.png) | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff_idinit-1.png) |
 
-# Conclusion
+## Conclusion
 
 The recursive initialization is responsible for
 instabilities. Initializing volumes independently from each other
@@ -77,6 +77,6 @@ fixes the issue, but it may also be less accurate. Bootstraping the
 motion correction pipeline (not only the rigid registraton) may be a
 solution.
 
-# Command log
+## Command log
 
 See `log.sh`
