@@ -8,7 +8,7 @@
  motion correction. The instability comes from the initialization of
  registration /n/ from the transformation resulting from registration
  /n-1/ in the time series. Registering the volumes independently from
- each other fixes the issue.
+ each other fixes the instability. 
 
 ## Implementation
 
