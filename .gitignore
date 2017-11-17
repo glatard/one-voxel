@@ -1,0 +1,7 @@
+*~
+\#*
+*.mnc
+*.nii.gz
+*.pyc
+results/data
+*.xfm
