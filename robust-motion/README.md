@@ -2,9 +2,9 @@
 
 ## tl;dr
 
-  We observed
+  As observed
  [there](https://github.com/glatard/one-voxel/tree/master/verifyFiles)
- (see last animation) that the one-voxel perturbation had an effect on
+ (see last animation), the one-voxel perturbation had an effect on
  motion correction.  Here we observe the one-voxel perturbation has no
  effect on rigid registration when executed independently from motion
  correction. In motion correction, the initialization of registration
