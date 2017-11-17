@@ -23,7 +23,8 @@ I implemented a basic motion correction procedure in
   identity. `minctract` is used with the following parameters which
   are roughly consistent with the ones used in Niak:
 
-``minctracc <source_vol> <target_vol> -clobber -xcorr -forward -lsq6 -speckle 0 -est_center -tol 0.0005 -trilinear -simplex 10 -model_lattice -step 10 10 10 <out_trsf> -transformation <init_transfo>`
+```
+minctracc <source_vol> <target_vol> -clobber -xcorr -forward -lsq6 -speckle 0 -est_center -tol 0.0005 -trilinear -simplex 10 -model_lattice -step 10 10 10 <out_trsf> -transformation <init_transfo>`
 
 ```
 
