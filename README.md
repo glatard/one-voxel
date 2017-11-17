@@ -10,9 +10,7 @@ A one-voxel experiment with the Niak pre-processing pipeline.
   produced by `minctrac` between 2 volumes of
   `sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz` in
   `ds114`. Most likely, this is because *rigid registration is not
-  unstable, motion correction is*. If this is confirmed, the fix
-  should rather be to avoid initializing registration n with
-  transformation n-1 and to iteratively optimize /all/ registrations. 
+  unstable, motion correction is*. 
 
 * Started a script to average rigid transformations, to be used to bootstrap rigid registration (`robust-motion/average_transfo.py`). Based on the framework in [there](https://link.springer.com/chapter/10.1007%2F11866763_19?LI=true).
 
