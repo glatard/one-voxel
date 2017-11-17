@@ -56,8 +56,7 @@ When the transformation at iteration /n/ is initialized from the result
 
   | Translation | Rotation |
   --------------|:---------|
-  | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff-0.png)\
-  |  ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff-1.png) |
+  | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff-0.png) | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff-1.png) |
 
 The motion parameters are not stable. The effect of the one-voxel
 perturbation propagates along the time series. The impact of the
