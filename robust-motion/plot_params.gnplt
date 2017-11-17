@@ -65,3 +65,68 @@ plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
           "" using 1:6 title "ry" w lp pt 0,\
           "" using 1:7 title "rz" w lp pt 0,\
 	  0 lt -1 notitle
+
+
+############# id init
+
+inputfile="sub-01_ses-retest_task-overtwordrepetition_bold_transf_params_idinit.txt"
+outputfile="sub-01_ses-retest_task-overtwordrepetition_bold_transf_params_idinit.pdf"
+
+set output outputfile
+
+# Translations
+set ylabel "mm"
+plot [0:] inputfile using 1:2 title "tx" w lp pt 0 ,\
+          "" using 1:3 title "ty" w lp pt 0,\
+          "" using 1:4 title "tz" w lp pt 0,\
+	  0 lt -1 notitle
+
+# Rotations
+set ylabel "degree"
+plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
+          "" using 1:6 title "ry" w lp pt 0,\
+          "" using 1:7 title "rz" w lp pt 0,\
+	  0 lt -1 notitle
+
+## TODO: a for loop would be wise...
+
+inputfile="sub-01_ses-retest_task-overtwordrepetition_bold_onevoxel_transf_params_idinit.txt"
+outputfile="sub-01_ses-retest_task-overtwordrepetition_bold_onevoxel_transf_params_idinit.pdf"
+
+set output outputfile
+
+# Translations
+set ylabel "mm"
+plot [0:] inputfile using 1:2 title "tx" w lp pt 0 ,\
+          "" using 1:3 title "ty" w lp pt 0,\
+          "" using 1:4 title "tz" w lp pt 0,\
+	  0 lt -1 notitle
+
+# Rotations
+set ylabel "degree"
+plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
+          "" using 1:6 title "ry" w lp pt 0,\
+          "" using 1:7 title "rz" w lp pt 0,\
+	  0 lt -1 notitle
+
+
+## TODO: a for loop would be wise...
+
+inputfile="diff_idinit.txt"
+outputfile="diff_idinit.pdf"
+
+set output outputfile
+
+# Translations
+set ylabel "mm"
+plot [0:] inputfile using 1:2 title "tx" w lp pt 0 ,\
+          "" using 1:3 title "ty" w lp pt 0,\
+          "" using 1:4 title "tz" w lp pt 0,\
+	  0 lt -1 notitle
+
+# Rotations
+set ylabel "degree"
+plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
+          "" using 1:6 title "ry" w lp pt 0,\
+          "" using 1:7 title "rz" w lp pt 0,\
+	  0 lt -1 notitle

@@ -26,7 +26,7 @@ func_image_nii=$1
 
 func_name=$(echo ${func_image_nii} | awk -F '.nii.gz' '{print $1}')
 func_image_mnc="${func_name}.mnc"
-run nii2mnc -clobber ${func_image_nii} ${func_image_mnc}
+test -f ${func_image_mnc} || run nii2mnc -clobber ${func_image_nii} ${func_image_mnc}
 
 n_vols=$(mincinfo -dimlength time ${func_image_mnc})
 last_vol=$((${n_vols}-1))
@@ -35,12 +35,12 @@ n_ref_vol=$((${n_vols}/2))
 # extract volumes
 for i in $(seq 0 ${last_vol})
 do
-    run mincreshape -clobber -dimrange time=${i} ${func_image_mnc} ${func_name}_vol_${i}.mnc
+    test -f ${func_name}_vol_${i}.mnc || run mincreshape -clobber -dimrange time=${i} ${func_image_mnc} ${func_name}_vol_${i}.mnc
 done
 
 run param2xfm -clobber identity.xfm -translation 0 0 0 -rotations 0 0 0 -clobber
 
-# motion correction
+# motion correction 
 for i in $(seq 0 ${last_vol})
 do
     if (( $i == 0 ))
@@ -50,7 +50,8 @@ do
 	i_prev=$(($i-1))
 	init_transfo=${func_name}_transf_${i_prev}_${n_ref_vol}.xfm
     fi
+    # init from i-1
     run minctracc ${func_name}_vol_${i}.mnc ${func_name}_vol_${n_ref_vol}.mnc ${minctrac_opts} ${func_name}_transf_${i}_${n_ref_vol}.xfm -transformation ${init_transfo}
+    # init from identity
+    run minctracc ${func_name}_vol_${i}.mnc ${func_name}_vol_${n_ref_vol}.mnc ${minctrac_opts} ${func_name}_transf_${i}_${n_ref_vol}_idinit.xfm -transformation identity.xfm
 done
-
-
