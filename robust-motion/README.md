@@ -33,8 +33,10 @@ minctracc <source_vol> <target_vol> -clobber -xcorr -forward -lsq6 -speckle 0 -e
 I tested `motion-correct.sh` on the same subject as
   [there](https://github.com/glatard/one-voxel/tree/master/verifyFiles),
   obtained the following motion parameters:
-  
-  ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params.pdf)
+
+  | Translation | Rotation |
+  --------------|:---------|
+  | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-0.png) | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-1.png) |
   
   The motion parameters are consistent with the [ones produced by
   Niak](https://github.com/glatard/one-voxel/tree/master/verifyFiles). The
@@ -65,7 +67,10 @@ perturbation on volumes of the time series is not uniform.
 When the transformations are all initialized from the identity, the
 differences become negligible:
 
-  ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff-idinit.pdf)
+  | Translation | Rotation |
+  --------------|:---------|
+  | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff_idinit-0.png) | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff_idinit-1.png) |
+
 
 Conclusion: the recursive initialization is responsible for instabilities.
 
