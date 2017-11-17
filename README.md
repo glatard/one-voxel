@@ -18,7 +18,7 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 - [ ] Bootstrap rigid registration
 - [ ] Test on more subjects
-- [ ] Test with feat and SPM
+- [ ] Test with feat, SPM, fmriprep
 - [ ] Comparison with effect of the OS
 - [ ] Define a proper stability measure
 
