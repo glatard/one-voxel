@@ -5,12 +5,7 @@ set -u
 
 function run {
     $quiet || echo $*
-    $* &> last_log.log
-    if (( $? != 0 ))
-    then
-	cat last_log.log
-	exit 1
-    fi
+    $* &> last_log.log || ( cat last_log.log ; exit 1 )
 }
 
 if [ $# != 1 ]
@@ -53,7 +48,7 @@ do
 	init_transfo="identity.xfm"
     else
 	i_prev=$(($i-1))
-	init_transfo=transf_${i_prev}_${n_ref_vol}.xfm
+	init_transfo=${func_name}_transf_${i_prev}_${n_ref_vol}.xfm
     fi
     run minctracc ${func_name}_vol_${i}.mnc ${func_name}_vol_${n_ref_vol}.mnc ${minctrac_opts} ${func_name}_transf_${i}_${n_ref_vol}.xfm -transformation ${init_transfo}
 done
