@@ -4,6 +4,21 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ## Log
 
+### 2017-11-22
+
+* [Motion correction is indeed
+  stabilized](https://github.com/glatard/one-voxel/tree/master/stabilized-niak-motion-correction).
+
+* Found out why my modifications in Niak weren't used: Niak bricks are
+  executed by the worker, not the master. The worker's container image
+  also has to be updated.
+
+### 2017-11-21
+
+* Fixed Niak's pre-processing pipeline so that it doesn't initialize
+  motion correction of volume /i/ from the transformation obtained for
+  volume /i-1/. But results are the same, it seems my code is not run at all.
+
 ### 2017-11-20
 
 * What makes small variations small? They are considered small when
