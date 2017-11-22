@@ -26,7 +26,7 @@ func_image_nii=$1
 
 func_name=$(echo ${func_image_nii} | awk -F '.nii.gz' '{print $1}')
 func_image_mnc="${func_name}.mnc"
-test -f ${func_image_mnc} || run nii2mnc -clobber ${func_image_nii} ${func_image_mnc}
+test -f ${func_image_mnc} || run gunzip ${func_image_nii} && run nii2mnc  ${func_name}.nii ${func_image_mnc}
 
 n_vols=$(mincinfo -dimlength time ${func_image_mnc})
 last_vol=$((${n_vols}-1))

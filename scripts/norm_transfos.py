@@ -54,10 +54,3 @@ def mean_transfo(transfos):
     print("sigmas: ", s_theta, s_x, s_y, s_z)
     return ssd(mean_transfo, transfos, s_theta, s_x, s_y, s_z)
 
-transfos = []
-transfos.append(tu.read_transfo('transfo-0.xfm'))
-transfos.append(tu.read_transfo('transfo-1.xfm'))
-transfos.append(tu.read_transfo('transfo-2.xfm'))
-transfos.append(tu.read_transfo('transfo-3.xfm'))
-
-print(mean_transfo(transfos))
