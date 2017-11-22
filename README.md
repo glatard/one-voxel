@@ -4,6 +4,36 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ## Log
 
+### 2017-11-20
+
+* What makes small variations small? They are considered small when
+  compared to other, canonical, variations. For instance, the
+  one-voxel variation is considered small because the variability
+  coming from acquisition noise is much more important. 
+
+* About the definition of stability: a pipeline is an application p: X
+-> Y. There are distances dX and dY defined on X and Y. When a
+perturbation x is applied to x0 in X, we define y(x, x0) = dY(p(x0+x),
+p(x0)). p is usually not linear, even when linear transforms such as
+rigid registration are mainly involved in p (think: is the result of
+rigid transformation linearly related to the initialization of the
+optimization process).
+
+* L'objectif de cette definition de la stabilite est de s'affranchir
+  d'une reference quantitative dependante de chaque etape du
+  pipeline. Nous cherchons une definition de la stabilite qui
+  ne dependrait pas d'un seuil propre a chaque application. 
+
+Soit f la fonction de x, x0 telle que dY(p(x0+x), p(x0)) = f(  dX(x+x0, x0) ).
+La stabilite en x0 est definie a partir de df/dx(x0)
+
+Instabilite nulle: df/dx = 0
+Instabilite lineaire: df/dx = k
+Instabilite quadratique: df/dx = kx
+...
+
+La definition de la distance est indeniablement dependante de l'application.
+
 ### 2017-11-17
 
 * The instability comes from the initialization of registration /n/
