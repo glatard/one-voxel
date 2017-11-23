@@ -20,7 +20,8 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 ### 2017-11-22
 
 * Started a MINC-based co-registration script to reproduce Niak's (see
-  `scripts/co-registration.sh`). Co-registration doesn't work, needs further investigation.
+  `scripts/co-registration.sh`). Co-registration doesn't work, needs further investigation:
+  
   ![failed-registration](https://github.com/glatard/one-voxel/raw/master/co-registration/failed.png)
 
 * Co-registration between FUNC and T1 is implemented in
