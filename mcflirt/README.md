@@ -58,7 +58,7 @@ The iterative initialization in 2. can be circumvented using flag
 
   | Translation | Rotation |
   --------------|:---------|
-  | ![translation](https://github.com/glatard/one-voxel/raw/master/mcflirt/fudge/differences-translation.png) | ![rotation](https://github.com/glatard/one-voxel/raw/master/mcflirt/fudge/differences-rotation.png) |
+  | ![translation](https://github.com/glatard/one-voxel/raw/master/mcflirt/fudge/differences-translations.png) | ![rotation](https://github.com/glatard/one-voxel/raw/master/mcflirt/fudge/differences-rotations.png) |
 
 ```
 mcflirt -in ./sub-01_ses-retest_task-overtwordrepetition_bold_onevoxel.nii.gz -out ./sub-01_ses-retest_task-overtwordrepetition_bold_onevoxel_mcflirt -mats -plots -rmsrel -rmsabs -spline_final -fudge
