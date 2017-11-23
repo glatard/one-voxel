@@ -1,0 +1,2 @@
+mcflirt -in ./sub-01_ses-retest_task-overtwordrepetition_bold_onevoxel.nii.gz -out ./sub-01_ses-retest_task-overtwordrepetition_bold_onevoxel_mcflirt -mats -plots -rmsrel -rmsabs -spline_final
+../scripts/diff_param_files.py ./onevoxel/sub-01_ses-retest_task-overtwordrepetition_bold_onevoxel_mcflirt.par ./regular/sub-01_ses-retest_task-overtwordrepetition_bold_mcflirt.par --mcflirt > difference.par
