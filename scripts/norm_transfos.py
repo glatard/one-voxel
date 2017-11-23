@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import numpy
+from scipy.optimize import minimize
 import transfo_utils as tu
 
 ## Distance between transformations
@@ -49,8 +50,17 @@ def get_sigmas(transfos):
     return numpy.std(angles), numpy.std(sxs), numpy.std(sys), numpy.std(szs)
 
 def mean_transfo(transfos):
-    mean_transfo = transfos[0]
     s_theta, s_x, s_y, s_z = get_sigmas(transfos)
-    print("sigmas: ", s_theta, s_x, s_y, s_z)
-    return ssd(mean_transfo, transfos, s_theta, s_x, s_y, s_z)
+    assert(s_theta!=0 and s_x!=0 and s_y!=0 and s_z!=0)
+    print("\n# Mean computation")
+    print("s_theta={0}, s_x={1}, s_y={2}, s_z={3}".format(s_theta, s_x, s_y, s_z))
+    def obj(x): # the objective function to minimize
+        transfo = tu.get_transfo_mat(x)
+        return ssd(transfo, transfos, s_theta, s_x, s_y, s_z)
+    mean_transfo = transfos[0]
+    rx, ry, rz = tu.get_euler_angles(mean_transfo)
+    [tx, ty, tz] = tu.get_tr_vec(mean_transfo)
+    res = minimize(obj, [tx, ty, tz, rz, ry, rz], method='BFGS', options={'disp': True})
+    return tu.get_transfo_mat(res.x)
+
 

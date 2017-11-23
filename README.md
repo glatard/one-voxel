@@ -6,6 +6,13 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ### 2017-11-23
 
+* Finished a script to compute the mean of rigid transformations:
+  `scripts/mean_transfos.py`. Surprinsingly, the naive mean
+  computation gives the same result as the Frechet mean computed from
+  the Mahanalobis norm on the transformations -- not sure why, maybe
+  it's because I tested this only on motion transformations and
+  movement is small.
+
 * Multi-scale iterations are present both in Niak's co-registration
   and in FSL's motion correction. The only obvious solution to
   stabilize them seems to be bootstraping. 
