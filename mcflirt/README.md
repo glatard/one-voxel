@@ -12,7 +12,7 @@
    rid of the multi-scale approach, which would have other
    consequences.
 
-## Stabilization
+## Instability
 
    Applied `mcflirt` from FSL 5.06 to the one-voxel and regular time
    series. Reference volume was 38, as for Niak. Obtained the
