@@ -1,0 +1,21 @@
+set terminal png
+
+set output "rotation.png"
+plot "regular/sub-01_ses-retest_task-overtwordrepetition_bold_mcflirt.par" u 1 title "rx" w lp,\
+"" u 2 title "ry" w lp pt 0,\
+"" u 3 title "rz" w lp pt 0, 0 lt -1
+
+set output "translation.png"
+plot [][-0.4:0.6] "regular/sub-01_ses-retest_task-overtwordrepetition_bold_mcflirt.par" u 4 title "tx" w lp pt 0,\
+"" u 5 title "ty" w lp pt 0,\
+"" u 6 title "tz" w lp pt 0, 0 notitle lt -1
+
+set output "differences-translation.png"
+plot [][] "difference.par" u 4 title "tx" w lp pt 0,\
+"" u 5 title "ty" w lp pt 0,\
+"" u 6 title "tz" w lp pt 0, 0 notitle lt -1
+
+set output "differences-rotation.png"
+plot "difference.par" u 1 title "rx" w lp pt 0,\
+"" u 2 title "ry" w lp pt 0,\
+"" u 3 title "rz" w lp pt 0
