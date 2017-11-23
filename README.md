@@ -4,7 +4,45 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ## Log
 
+### 2017-11-23
+
+* Multi-scale iterations are present both in Niak's co-registration
+  and in FSL's motion correction. The only obvious solution to
+  stabilize them seems to be bootstraping. 
+
+* Looked at FSL's mcflirt motion-correction tool (see details
+  [here](https://github.com/glatard/one-voxel/tree/master/mcflirt)). It
+  is also unstable due to iterative schemes. Only the
+  volume-initialization could be fixed, similar to Niak. It reduces
+  instability but doesn't remove it completely due to the remaining
+  multi-scale iteration.
+
 ### 2017-11-22
+
+* Started a MINC-based co-registration script to reproduce Niak's (see
+  `scripts/co-registration.sh`). Co-registration doesn't work, needs further investigation.
+  ![failed-registration](https://github.com/glatard/one-voxel/raw/master/co-registration/failed.png)
+
+* Co-registration between FUNC and T1 is implemented in
+  `niak_brick_anat2func.m`. It is an iterative process where
+  `minctracc` is applied with different levels of smoothing and
+  different simplex values. Such an iterative process might create
+  instabilities similar to the ones in motion correction. 
+
+* Transformation `FUNC-to-stereolin` looks slightly less stable:
+
+`
+ distance_transfo.py ./results-directory-stabilized.niak/anat/sub01/transf_sub01_nativefunc_to_stereolin.xfm ./results-directory-stabilized-1152-935455850.niak/anat/sub01/transf_sub01_nativefunc_to_stereolin.xfm 0.1 0.1 0.1 0.1
+0.537001396521
+`
+
+So, co-registration between FUNC and T1 must be unstable.
+
+* Transformation `T1-to-stereolin` looks stable:
+`
+distance_transfo.py ./results-directory-stabilized.niak/anat/sub01/transf_sub01_nativet1_to_stereolin.xfm ./results-directory-stabilized-1152-935455850.niak/anat/sub01/transf_sub01_nativet1_to_stereolin.xfm 0.1 0.1 0.1 0.1
+1.34106353888e-27
+`
 
 * [Motion correction is indeed
   stabilized](https://github.com/glatard/one-voxel/tree/master/stabilized-niak-motion-correction).
