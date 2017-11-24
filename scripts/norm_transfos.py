@@ -50,6 +50,8 @@ def get_sigmas(transfos):
     return numpy.std(angles), numpy.std(sxs), numpy.std(sys), numpy.std(szs)
 
 def mean_transfo(transfos):
+    if len(transfos) == 1:
+        return transfos[0], 0
     s_theta, s_x, s_y, s_z = get_sigmas(transfos)
     assert(s_theta!=0 and s_x!=0 and s_y!=0 and s_z!=0)
     print("\n# Mean computation")
@@ -61,6 +63,7 @@ def mean_transfo(transfos):
     rx, ry, rz = tu.get_euler_angles(mean_transfo)
     [tx, ty, tz] = tu.get_tr_vec(mean_transfo)
     res = minimize(obj, [tx, ty, tz, rz, ry, rz], method='BFGS', options={'disp': True})
-    return tu.get_transfo_mat(res.x)
+    mean = tu.get_transfo_mat(res.x)
+    return mean, ssd(mean, transfos, s_theta, s_x, s_y, s_z)/len(transfos)
 
 

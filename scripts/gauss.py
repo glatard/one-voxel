@@ -27,11 +27,21 @@ def main():
 
     data = im.get_data()
 
-    for x in range(0, xdim):
-        for y in range(0, ydim):
-            for z in range(0, zdim):
-                for t in range(0, tdim):
-                    data[x][y][z][t] += random.gauss(0, args.sigma)
+    print(xdim, ydim, zdim, tdim)
+
+    if tdim != 0:
+        for x in range(0, xdim):
+            for y in range(0, ydim):
+                for z in range(0, zdim):
+                    for t in range(0, tdim):
+                        r = random.gauss(0, args.sigma)
+                        data[x][y][z][t] += r
+    else:
+        for x in range(0, xdim):
+            for y in range(0, ydim):
+                for z in range(0, zdim):
+                        r = random.gauss(0, args.sigma)
+                        data[x][y][z] += r
             
     im.to_filename(args.output_file)
 
