@@ -6,6 +6,16 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ### 2017-11-23
 
+* Added a script to bootstrap `minctracc` registration, see `scripts/minctracc_btp`.
+
+* Bootstrap gives a variance on parameters in addition to the
+  mean. Could be used to estimate "tool alphas". It's a pipeline-level
+  approach but it's not clear at which granularity it should be
+  applied (why registration and not the whole pipeline?). The noise
+  variance applied to the bootstrap controls how robust vs accurate we
+  want the pipeline to be. When this is solved it would be nice to see
+  if the numerical noise can be addressed by this approach.
+
 * Finished a script to compute the mean of rigid transformations:
   `scripts/mean_transfos.py`. Surprinsingly, the naive mean
   computation gives the same result as the Frechet mean computed from
