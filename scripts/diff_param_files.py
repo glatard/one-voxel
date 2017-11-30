@@ -31,7 +31,7 @@ else:
     lines2 = get_csv_lines(results.file2,' ')
 
    
-assert(len(lines1)==len(lines2))
+assert(len(lines1)==len(lines2)),"{0} != {1}".format(len(lines1), len(lines2))
 
 for i in range(0, len(lines1)):
     line1 = lines1[i]

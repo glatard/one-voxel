@@ -6,7 +6,11 @@ from math import cos, sin
 
 def get_rot_angle_vec(rot_mat):
     # See http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToAngle/
-    rot_angle = math.acos((rot_mat.item(0,0)+rot_mat.item(1,1)+rot_mat.item(2,2)-1)/2)
+    cos = (rot_mat.item(0,0)+rot_mat.item(1,1)+rot_mat.item(2,2)-1)/2
+    if(cos > 1):
+        print("Warning: cos is larger than 1: {0}".format(cos))
+        cos = 1
+    rot_angle = math.acos(cos)
     x = (rot_mat.item(2,1)-rot_mat.item(1,2))/math.sqrt((rot_mat.item(2,1)-rot_mat.item(1,2))**2+(rot_mat.item(0,2)-rot_mat.item(2,0))**2 + (rot_mat.item(1,0)-rot_mat.item(0,1))**2)
     y = (rot_mat.item(0,2)-rot_mat.item(2,0))/math.sqrt((rot_mat.item(2,1)-rot_mat.item(1,2))**2+(rot_mat.item(0,2)-rot_mat.item(2,0))**2 + (rot_mat.item(1,0)-rot_mat.item(0,1))**2)
     z = (rot_mat.item(1,0)-rot_mat.item(0,1))/math.sqrt((rot_mat.item(2,1)-rot_mat.item(1,2))**2+(rot_mat.item(0,2)-rot_mat.item(2,0))**2 + (rot_mat.item(1,0)-rot_mat.item(0,1))**2)
@@ -62,9 +66,9 @@ def read_transfo(file_name):
     with open(file_name) as f:
         for line in f:
             line = line.strip()
-            if transfo_line >= 0:
+            if transfo_line >= 0 and transfo_line < 3:
                 elements = line.split()
-                assert(len(elements) == 4), "Wrong format in transformation line: {0}".format(line)
+                assert(len(elements) == 4), "Wrong format in transformation line: {0} (file name: {1})".format(line, file_name)
                 for i in range(0, 4):
                     transfo[transfo_line][i] = float(elements[i].strip().replace(";",""))
                 transfo_line += 1
@@ -88,7 +92,8 @@ def print_mat(x, file_name):
         x.item(1,0), x.item(1,1), x.item(1,2), x.item(1,3),
         x.item(2,0), x.item(2,1), x.item(2,2), x.item(2,3))        
     with open(file_name, 'w') as f:
-        f.write("MNI Transform File")
+        f.write("MNI Transform File\n")
         f.write("Transform_Type = Linear;\nLinear_Transform =\n")
         f.write(s)
+        f.write(";")
 
