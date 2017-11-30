@@ -4,8 +4,7 @@ set -e
 set -u
 
 function run {
-    $quiet || echo $*
-    $* &> last_log.log || ( cat last_log.log ; exit 1 )
+    (start=$(date +%s%N); "$@" &> last_log.log && stop=$(date +%s%N) && time=$(echo "scale=4 ; $(((stop-start))) / 1000000000.0" | bc) && echo "[ OK ] (${time}s) $*") || ( echo "[ FAILED ] $*" ; cat last_log.log ; exit 1 )
 }
 
 if [ $# != 1 ]
@@ -26,7 +25,7 @@ func_image_nii=$1
 
 func_name=$(echo ${func_image_nii} | awk -F '.nii.gz' '{print $1}')
 func_image_mnc="${func_name}.mnc"
-test -f ${func_image_mnc} || run gunzip ${func_image_nii} && run nii2mnc  ${func_name}.nii ${func_image_mnc}
+test -f ${func_image_mnc} || ((test -f ${func_name}.nii || run gunzip ${func_image_nii}) && run nii2mnc ${func_name}.nii ${func_image_mnc})
 
 n_vols=$(mincinfo -dimlength time ${func_image_mnc})
 last_vol=$((${n_vols}-1))
@@ -46,12 +45,19 @@ do
     if (( $i == 0 ))
     then
 	init_transfo="identity.xfm"
+	init_transfo_btp="identity.xfm"
     else
 	i_prev=$(($i-1))
 	init_transfo=${func_name}_transf_${i_prev}_${n_ref_vol}.xfm
+	init_transfo_btp=${func_name}_transf_${i_prev}_${n_ref_vol}_bootstrap.xfm
     fi
     # init from i-1
-    run minctracc ${func_name}_vol_${i}.mnc ${func_name}_vol_${n_ref_vol}.mnc ${minctrac_opts} ${func_name}_transf_${i}_${n_ref_vol}.xfm -transformation ${init_transfo}
+    run minctracc ${func_name}_vol_${i}.mnc ${func_name}_vol_${n_ref_vol}.mnc ${func_name}_transf_${i}_${n_ref_vol}.xfm -transformation ${init_transfo} ${minctrac_opts} 
     # init from identity
-    run minctracc ${func_name}_vol_${i}.mnc ${func_name}_vol_${n_ref_vol}.mnc ${minctrac_opts} ${func_name}_transf_${i}_${n_ref_vol}_idinit.xfm -transformation identity.xfm
+    run minctracc ${func_name}_vol_${i}.mnc ${func_name}_vol_${n_ref_vol}.mnc ${func_name}_transf_${i}_${n_ref_vol}_idinit.xfm  -transformation identity.xfm ${minctrac_opts}
+
+    # init from i-1 -- bootstrap
+    run minctracc_btp_init 50 ${func_name}_vol_${i}.mnc ${func_name}_vol_${n_ref_vol}.mnc ${func_name}_transf_${i}_${n_ref_vol}_bootstrap.xfm -transformation ${init_transfo_btp} ${minctrac_opts} 
+    # init from identity -- bootstrap
+    run minctracc_btp_init 50 ${func_name}_vol_${i}.mnc ${func_name}_vol_${n_ref_vol}.mnc ${func_name}_transf_${i}_${n_ref_vol}_bootstrap_idinit.xfm -transformation identity.xfm ${minctrac_opts}
 done
