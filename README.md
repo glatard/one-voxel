@@ -8,7 +8,8 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 - [ ] measure output variance.
 
-- [ ] update bootstrap to measure convergence.
+- [ ] update bootstrap to measure convergence as the stability of the
+  estimated result.
 
 * The magnitude of the noised used in the sampling process is a given
   of the process. The pipeline is robustified at a particular scale,
