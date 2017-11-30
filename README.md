@@ -4,6 +4,57 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ## Log
 
+### 2017-11-30
+
+- [ ] measure output variance.
+
+- [ ] update bootstrap to measure convergence.
+
+* The magnitude of the noised used in the sampling process is a given
+  of the process. The pipeline is robustified at a particular scale,
+  knowing that a coarser scale (larger sigma) would increase the
+  robustness but probably decrease the accuracy.
+
+* The perturbations applied to the input of `minctracc` could be a mix
+  of perturbations on the source image, target image, input
+  transformation and other parameters. There is no reason /a-priori/
+  to restrain the perturbations to one of these parameters. But not
+  all parameters can reasonably be noised. For instance, it does not
+  make sense for categorical variables such as the similarity measure.
+
+* The number of samples and re-samples could be chosen such that
+  adding new samples or re-samples does not change the estimate, that
+  is, the estimate converged.
+
+* The transformations obtained in the first volumes ([0-10]))
+  [here](https://github.com/glatard/one-voxel/tree/master/robust-motion)
+  are not necessarily stable: they didn't get any perturbation. It
+  would not be surprising if bootstraping introduced some variance
+  there. On the contrary, the transformation obtained for 38 is likely
+  to be very stable (it is the identity). 
+
+### 2017-11-28
+
+* The variance obtained from bootstrap is itself a measure of stability. 
+
+### 2017-11-28
+
+* Tried bootstrap with a Gaussian noise on 
+
+* Tried bootstrap with a one-voxel noise. Didn't work either.
+
+* Tried bootstrap with a Gaussian noise of sigma=10 on source image
+  (minctracc_btp, motion-correction.sh). Bootstrap is not able to fix
+  instabilities in motion correction as uniform initialization is. 
+
+### 2017-11-24
+
+- [ ] look at how to reduce the number of iterations in bootstrap
+  process based on variance stability. This is needed to speed-up the process.
+
+- [ ] pipeline needs `pip install nibabel scipy` (for `gauss.py` and
+  `norm_utils.py`). I guess a proper Python package is needed...
+
 ### 2017-11-23
 
 * Added a script to bootstrap `minctracc` registration, see `scripts/minctracc_btp`.
