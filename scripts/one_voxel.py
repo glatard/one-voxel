@@ -2,6 +2,10 @@
 
 import argparse
 import nibabel
+import random
+
+def get_randint(dim, margin):
+    return random.randint(max(dim/2-margin,0), min(dim-1, dim/2+margin))
 
 def main():
 
@@ -9,6 +13,7 @@ def main():
  central voxel in each volume by 1%.")
     parser.add_argument("image_file")
     parser.add_argument("output_file")
+    parser.add_argument("--random", action="store_true")
     args = parser.parse_args()
     
     # Load image using nibabel
@@ -26,11 +31,26 @@ def main():
 
     data = im.get_data()
 
+    margin = 15
+    
     if tdim != 0:
         for t in range(0, tdim):
-            data[xdim/2][ydim/2][zdim/2][t] *= 1.01
+            x = get_randint(xdim, margin)
+            y = get_randint(ydim, margin)
+            z = get_randint(zdim, margin)
+            data[x][y][z][t] *= 1.01
+            
     else:
-        data[xdim/2][ydim/2][zdim/2] *= 1.01
+        if not args.random:
+            x = xdim/2
+            y = ydim/2
+            z = zdim/2
+        else:
+            x = get_randint(xdim, margin)
+            y = get_randint(ydim, margin)
+            z = get_randint(zdim, margin)
+        print("Changing intensity of voxel {0} {1} {2}".format(x,y,z))
+        data[x][y][z] *= 1.01
             
     im.to_filename(args.output_file)
 
