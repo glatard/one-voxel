@@ -1,28 +1,31 @@
 #!/usr/bin/env gnuplot 
 
-set terminal pdf
+set terminal png
 set datafile separator ','
 set xlabel "Volume"
 
 inputfile="sub-01_ses-retest_task-overtwordrepetition_bold_transf_params.txt"
-outputfile="sub-01_ses-retest_task-overtwordrepetition_bold_transf_params.pdf"
+outputfile="sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-0.png"
 
 set output outputfile
 
 # Translations
 set ylabel "mm"
-plot [0:] inputfile using 1:2 title "tx" w lp pt 0 ,\
+plot [0:][-0.4:0.6] inputfile using 1:2 title "tx" w lp pt 0 ,\
           "" using 1:3 title "ty" w lp pt 0,\
           "" using 1:4 title "tz" w lp pt 0,\
 	  0 lt -1 notitle
 
 # Rotations
-set ylabel "degree"
-plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
+set ylabel "rad"
+plot [0:][-0.016:0.014] inputfile using 1:5 title "rx" w lp pt 0,\
           "" using 1:6 title "ry" w lp pt 0,\
           "" using 1:7 title "rz" w lp pt 0,\
 	  0 lt -1 notitle
 
+outputfile="sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-1.png"
+
+set terminal pdf
 ## TODO: a for loop would be wise...
 
 inputfile="sub-01_ses-retest_task-overtwordrepetition_bold_onevoxel_transf_params.txt"
@@ -38,7 +41,7 @@ plot [0:] inputfile using 1:2 title "tx" w lp pt 0 ,\
 	  0 lt -1 notitle
 
 # Rotations
-set ylabel "degree"
+set ylabel "rad"
 plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
           "" using 1:6 title "ry" w lp pt 0,\
           "" using 1:7 title "rz" w lp pt 0,\
@@ -60,7 +63,7 @@ plot [0:] inputfile using 1:2 title "tx" w lp pt 0 ,\
 	  0 lt -1 notitle
 
 # Rotations
-set ylabel "degree"
+set ylabel "rad"
 plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
           "" using 1:6 title "ry" w lp pt 0,\
           "" using 1:7 title "rz" w lp pt 0,\
@@ -82,7 +85,7 @@ plot [0:] inputfile using 1:2 title "tx" w lp pt 0 ,\
 	  0 lt -1 notitle
 
 # Rotations
-set ylabel "degree"
+set ylabel "rad"
 plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
           "" using 1:6 title "ry" w lp pt 0,\
           "" using 1:7 title "rz" w lp pt 0,\
@@ -103,7 +106,7 @@ plot [0:] inputfile using 1:2 title "tx" w lp pt 0 ,\
 	  0 lt -1 notitle
 
 # Rotations
-set ylabel "degree"
+set ylabel "rad"
 plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
           "" using 1:6 title "ry" w lp pt 0,\
           "" using 1:7 title "rz" w lp pt 0,\
@@ -125,7 +128,7 @@ plot [0:] inputfile using 1:2 title "tx" w lp pt 0 ,\
 	  0 lt -1 notitle
 
 # Rotations
-set ylabel "degree"
+set ylabel "rad"
 plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
           "" using 1:6 title "ry" w lp pt 0,\
           "" using 1:7 title "rz" w lp pt 0,\
