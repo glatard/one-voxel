@@ -17,13 +17,13 @@ plot [0:][-0.4:0.6] inputfile using 1:2 title "tx" w lp pt 0 ,\
 	  0 lt -1 notitle
 
 # Rotations
+outputfile="sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-1.png"
 set ylabel "rad"
 plot [0:][-0.016:0.014] inputfile using 1:5 title "rx" w lp pt 0,\
           "" using 1:6 title "ry" w lp pt 0,\
           "" using 1:7 title "rz" w lp pt 0,\
 	  0 lt -1 notitle
 
-outputfile="sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-1.png"
 
 set terminal pdf
 ## TODO: a for loop would be wise...
