@@ -6,6 +6,8 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ### 2017-12-4
 
+- Bootstrap also works with mcflirt, see [here](https://github.com/glatard/one-voxel/tree/master/robust-motion-bootstrap-blackbox-mcflirt).
+
 - Applied bootstrap to the whole motion-correction chain instead of
   the individual volumes. Bootstrap stabilizes it. See results [here](https://github.com/glatard/one-voxel/tree/master/robust-motion-bootstrap-blackbox).
 
