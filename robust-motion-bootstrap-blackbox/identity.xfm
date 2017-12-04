@@ -1,0 +1,9 @@
+MNI Transform File
+%Mon Dec  4 06:47:45 2017>>> param2xfm -clobber identity.xfm -translation 0 0 0 -rotations 0 0 0 -clobber
+%(mni_autoreg 0.99.60)
+
+Transform_Type = Linear;
+Linear_Transform =
+ 1 0 0 0
+ 0 1 0 0
+ 0 0 1 0;

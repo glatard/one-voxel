@@ -1,0 +1,9 @@
+MNI Transform File
+%Mon Dec  4 06:33:44 2017>>> minctracc ./sub-01_ses-retest_task-overtwordrepetition_bold_83_vol_57.mnc ./sub-01_ses-retest_task-overtwordrepetition_bold_83_vol_38.mnc ./sub-01_ses-retest_task-overtwordrepetition_bold_83_transf_57_38_bootstrap.83.xfm -transformation ./sub-01_ses-retest_task-overtwordrepetition_bold_83_transf_56_38_bootstrap.83.xfm -clobber -xcorr -forward -lsq6 -speckle 0 -est_center -tol 0.0005 -trilinear -simplex 10 -model_lattice -step 10 10 10
+%(mni_autoreg 0.99.60)
+
+Transform_Type = Linear;
+Linear_Transform =
+ 0.999998688697815 0.00139281188603491 0.000865454552695155 0.0193700790405273
+ -0.00139094947371632 0.999996721744537 -0.00214896467514336 -0.0183610916137695
+ -0.000868444854859263 0.00214775814674795 0.999997317790985 0.0825819969177246;
