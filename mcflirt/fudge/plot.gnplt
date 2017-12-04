@@ -1,11 +1,11 @@
 set terminal png
 
 set output "differences-translations.png"
-plot [][] "difference.par" u 4 title "tx" w lp pt 0,\
+plot [][-0.04:0.06] "difference.par" u 4 title "tx" w lp pt 0,\
 "" u 5 title "ty" w lp pt 0,\
 "" u 6 title "tz" w lp pt 0, 0 notitle lt -1
 
 set output "differences-rotations.png"
-plot "difference.par" u 1 title "rx" w lp pt 0,\
+plot [][-0.0004:0.0004] "difference.par" u 1 title "rx" w lp pt 0,\
 "" u 2 title "ry" w lp pt 0,\
 "" u 3 title "rz" w lp pt 0, 0 notitle lt -1
