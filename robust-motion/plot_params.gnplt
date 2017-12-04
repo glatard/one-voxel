@@ -70,7 +70,7 @@ set output outputfile
 
 # Rotations
 set ylabel "rad"
-plot [0:][-0.0025:0.005] inputfile using 1:5 title "rx" w lp pt 0,\
+plot [0:][-0.0025:0.0005] inputfile using 1:5 title "rx" w lp pt 0,\
           "" using 1:6 title "ry" w lp pt 0,\
           "" using 1:7 title "rz" w lp pt 0,\
 	  0 lt -1 notitle
