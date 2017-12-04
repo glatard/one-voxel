@@ -43,7 +43,7 @@ for i in range(0, len(lines1)):
         assert(len(line1)==7)
         assert(len(line2)==7)
         assert(line1[0]==line2[0])
-        print("{0}, {1}, {2}, {3}, {4}, {5}, {6}".format(
+        print("{0} {1} {2} {3} {4} {5} {6}".format(
             line1[0],
             float(line1[1])-float(line2[1]),
             float(line1[2])-float(line2[2]),
@@ -54,7 +54,7 @@ for i in range(0, len(lines1)):
     else:
         assert(len(line1)==6)
         assert(len(line2)==6)
-        print("{0}, {1}, {2}, {3}, {4}, {5}".format(
+        print("{0} {1} {2} {3} {4} {5}".format(
             float(line1[0])-float(line2[0]),
             float(line1[1])-float(line2[1]),
             float(line1[2])-float(line2[2]),

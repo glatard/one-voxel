@@ -86,18 +86,3 @@ do
 	run transfo_stats.py ${transfos} ${output_transfo} 
     done
 done
-
-# Compute the final averages
-func_image_nii=$1
-func_name=$(echo ${func_image_nii} | awk -F '.nii.gz' '{print $1}')
-for i in $(seq 0 ${last_vol})
-do
-    transfos=""
-    for n in $(seq 1 ${n_samples})
-    do
-	transfo=${func_name}_${n}_transf_${i}_${n_ref_vol}_bootstrap.${n}.xfm
-	transfos="${transfos} ${transfo}"
-    done
-    output_transfo=${func_name}_transf_${i}_${n_ref_vol}_bootstrap.xfm
-    run transfo_stats.py ${transfos} ${output_transfo} 
-done
