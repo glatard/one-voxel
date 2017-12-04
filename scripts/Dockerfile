@@ -6,6 +6,7 @@ RUN apt-get install -y\
   easy_install pip
   
 RUN  pip install\
+  h5py\
   nibabel\
   scipy 
 

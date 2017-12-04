@@ -35,11 +35,15 @@ def main():
     
     if tdim != 0:
         for t in range(0, tdim):
-            x = get_randint(xdim, margin)
-            y = get_randint(ydim, margin)
-            z = get_randint(zdim, margin)
+            if not args.random:
+                x = xdim/2
+                y = ydim/2
+                z = zdim/2
+            else:
+                x = get_randint(xdim, margin)
+                y = get_randint(ydim, margin)
+                z = get_randint(zdim, margin)
             data[x][y][z][t] *= 1.01
-            
     else:
         if not args.random:
             x = xdim/2
@@ -49,7 +53,6 @@ def main():
             x = get_randint(xdim, margin)
             y = get_randint(ydim, margin)
             z = get_randint(zdim, margin)
-        print("Changing intensity of voxel {0} {1} {2}".format(x,y,z))
         data[x][y][z] *= 1.01
             
     im.to_filename(args.output_file)
