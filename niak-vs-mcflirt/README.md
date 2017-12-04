@@ -24,7 +24,8 @@ Transformation between volume i and volume i+1 is initialized from the identity 
 
 | Niak / minctools | FSL / mcflirt |
 -------------------|:--------------|
-
+| ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff_idinit-0.png) | ![translation](https://github.com/glatard/one-voxel/raw/master/mcflirt/fudge/differences-translations.png) |
+| ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff_idinit-1.png) | ![rotation](https://github.com/glatard/one-voxel/raw/master/mcflirt/fudge/differences-rotations.png) |
 
 ## Bootstrap
 
