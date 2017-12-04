@@ -7,6 +7,8 @@
 | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-0.png) | ![translation](https://github.com/glatard/one-voxel/raw/master/mcflirt/translation.png)|
 | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-1.png) | ![rotation](https://github.com/glatard/one-voxel/raw/master/mcflirt/rotation.png) |
 
+The estimates provided by both algorithms are consistent, although not identical.
+
 # Stability
 
 Stability is measured as the difference between the motion estimated from the initial time series and the time series after a one-voxel perturbation.
@@ -18,6 +20,10 @@ Stability is measured as the difference between the motion estimated from the in
 | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff-0.png) | ![translation](https://github.com/glatard/one-voxel/raw/master/mcflirt/differences-translation.png) |
 | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff-1.png) |   ![rotation](https://github.com/glatard/one-voxel/raw/master/mcflirt/differences-rotation.png) |
 
+Both algorithms are unstable to the one-voxel
+perturbation. Admittedly, the effect of the one-voxel perturbation is
+small. 
+
 ## Independent initialization
 
 Transformation between volume i and volume i+1 is initialized from the identity matrix rather than from transformation between volume i-1 and i.
@@ -26,6 +32,10 @@ Transformation between volume i and volume i+1 is initialized from the identity 
 -------------------|:--------------|
 | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff_idinit-0.png) | ![translation](https://github.com/glatard/one-voxel/raw/master/mcflirt/fudge/differences-translations.png) |
 | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff_idinit-1.png) | ![rotation](https://github.com/glatard/one-voxel/raw/master/mcflirt/fudge/differences-rotations.png) |
+
+Niak / minctools is completely stabilized by the corrected
+initialization. mcflirt is not, most likely due to the iterative
+multi-scaling approach.
 
 ## Bootstrap
 
@@ -39,3 +49,5 @@ Convergence of the bootstrap estimate, from 1 to 100 iterations.
 | ![rotation_x](https://github.com/glatard/one-voxel/raw/master/robust-motion-bootstrap-blackbox/rx.png) | ![rotation_x](https://github.com/glatard/one-voxel/raw/master/robust-motion-bootstrap-blackbox-mcflirt/rx.png) |
 | ![rotation_y](https://github.com/glatard/one-voxel/raw/master/robust-motion-bootstrap-blackbox/ry.png) | ![rotation_y](https://github.com/glatard/one-voxel/raw/master/robust-motion-bootstrap-blackbox-mcflirt/ry.png) |
 ![rotation_z](https://github.com/glatard/one-voxel/raw/master/robust-motion-bootstrap-blackbox/rz.png) | ![rotation_z](https://github.com/glatard/one-voxel/raw/master/robust-motion-bootstrap-blackbox-mcflirt/rz.png) |
+
+Both algorithms are stabilized by the bootstrap, although differences remain at some time points.
