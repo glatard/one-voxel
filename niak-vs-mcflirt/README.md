@@ -7,7 +7,7 @@
 | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-0.png) | ![translation](https://github.com/glatard/one-voxel/raw/master/mcflirt/translation.png)|
 | ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-1.png) | ![rotation](https://github.com/glatard/one-voxel/raw/master/mcflirt/rotation.png) |
 
-The estimates provided by both algorithms are consistent, although not identical.
+The estimates provided by both algorithms are consistent (?), although not identical.
 
 # Stability
 
