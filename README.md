@@ -4,11 +4,19 @@ A one-voxel experiment with the Niak pre-processing pipeline.
 
 ## Log
 
+### 2017-12-4
+
+- Applied bootstrap to the whole motion-correction chain instead of
+  the individual volumes. Bootstrap stabilizes it. See results [here](https://github.com/glatard/one-voxel/tree/master/robust-motion-bootstrap-blackbox).
+
 ### 2017-11-30
 
-- [ ] measure output variance.
+- In `motion-correction.sh`, iterative initialization seems to be
+  converging faster than initialization to the identity. 
 
-- [ ] update bootstrap to measure convergence as the stability of the
+- [ X ] measure output variance.
+
+- [ X ] update bootstrap to measure convergence as the stability of the
   estimated result.
 
 * The magnitude of the noised used in the sampling process is a given
