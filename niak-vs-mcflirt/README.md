@@ -2,7 +2,10 @@
 
 # Estimated parameters
 
-
+| Niak / minctools | FSL / mcflirt |
+-------------------|:--------------|
+| ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-0.png) | ![translation](https://github.com/glatard/one-voxel/raw/master/mcflirt/translation.png)|
+| ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-1.png) | ![rotation](https://github.com/glatard/one-voxel/raw/master/mcflirt/rotation.png) |
 
 # Stability
 
@@ -12,8 +15,8 @@ Stability is measured as the difference between the motion estimated from the in
 
 | Niak / minctools | FSL / mcflirt |
 -------------------|:--------------|
-| ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-0.png) | ![translation](https://github.com/glatard/one-voxel/raw/master/mcflirt/translation.png)|
-| ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/sub-01_ses-retest_task-overtwordrepetition_bold_transf_params-1.png) | ![rotation](https://github.com/glatard/one-voxel/raw/master/mcflirt/rotation.png) |
+| ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff-0.png) | ![translation](https://github.com/glatard/one-voxel/raw/master/mcflirt/differences-translation.png) |
+| ![alt text](https://github.com/glatard/one-voxel/raw/master/robust-motion/diff-1.png) |   ![rotation](https://github.com/glatard/one-voxel/raw/master/mcflirt/differences-rotation.png) |
 
 ## Independent initialization
 
