@@ -52,20 +52,25 @@ plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
 ## TODO: a for loop would be wise...
 
 inputfile="diff.txt"
-outputfile="diff.pdf"
 
+set terminal png
+
+outputfile="diff-0.png"
 set output outputfile
 
 # Translations
 set ylabel "mm"
-plot [0:] inputfile using 1:2 title "tx" w lp pt 0 ,\
+plot [0:][-0.04:0.06] inputfile using 1:2 title "tx" w lp pt 0 ,\
           "" using 1:3 title "ty" w lp pt 0,\
           "" using 1:4 title "tz" w lp pt 0,\
 	  0 lt -1 notitle
 
+outputfile="diff-1.png"
+set output outputfile
+
 # Rotations
 set ylabel "rad"
-plot [0:] inputfile using 1:5 title "rx" w lp pt 0,\
+plot [0:][-0.025:0.005] inputfile using 1:5 title "rx" w lp pt 0,\
           "" using 1:6 title "ry" w lp pt 0,\
           "" using 1:7 title "rz" w lp pt 0,\
 	  0 lt -1 notitle
