@@ -18,4 +18,4 @@ plot [][-0.04:0.06] "difference.par" u 4 title "tx" w lp pt 0,\
 set output "differences-rotation.png"
 plot [][-0.0005:0.0005] "difference.par" u 1 title "rx" w lp pt 0,\
 "" u 2 title "ry" w lp pt 0,\
-"" u 3 title "rz" w lp pt 0
+"" u 3 title "rz" w lp pt 0, 0 notitle lt -1
