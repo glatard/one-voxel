@@ -2,13 +2,17 @@
 
 set terminal png
 
-
 set xlabel "Volume"
+
+ymin_tr=-0.04
+ymax_tr=0.06
+ymin_rot=-0.023
+ymax_rot=0.023
 
 set output "tx.png"
 set title "tx"
 set ylabel "mm"
-plot 0 notitle, "diff_iter_1.txt" u 1:2 w lp title "1 iteration",\
+plot [][ymin_tr:ymax_tr] 0 notitle, "diff_iter_1.txt" u 1:2 w lp title "1 iteration",\
                  "diff_iter_10.txt" u 1:2 w lp title "10 iterations",\
 		 "diff_iter_20.txt" u 1:2 w lp title "20 iterations",\
 		 "diff_iter_100.txt" u 1:2 w lp title "100 iterations" lt -1 lw 3
@@ -16,7 +20,7 @@ plot 0 notitle, "diff_iter_1.txt" u 1:2 w lp title "1 iteration",\
 set output "ty.png"
 set title "ty"
 set ylabel "mm"
-plot 0 notitle, "diff_iter_1.txt" u 1:3 w lp title "1 iteration",\
+plot [][ymin_tr:ymax_tr] 0 notitle, "diff_iter_1.txt" u 1:3 w lp title "1 iteration",\
                  "diff_iter_10.txt" u 1:3 w lp title "10 iterations",\
 		 "diff_iter_20.txt" u 1:3 w lp title "20 iterations",\
 		 "diff_iter_100.txt" u 1:3 w lp title "100 iterations" lt -1 lw 3
@@ -24,7 +28,7 @@ plot 0 notitle, "diff_iter_1.txt" u 1:3 w lp title "1 iteration",\
 set output "tz.png"
 set title "tz"
 set ylabel "mm"
-plot 0 notitle, "diff_iter_1.txt" u 1:4 w lp title "1 iteration",\
+plot [][ymin_tr:ymax_tr] 0 notitle, "diff_iter_1.txt" u 1:4 w lp title "1 iteration",\
                  "diff_iter_10.txt" u 1:4 w lp title "10 iterations",\
 		 "diff_iter_20.txt" u 1:4 w lp title "20 iterations",\
 		 "diff_iter_100.txt" u 1:4 w lp title "100 iterations" lt -1 lw 3
@@ -32,7 +36,7 @@ plot 0 notitle, "diff_iter_1.txt" u 1:4 w lp title "1 iteration",\
 set output "rx.png"
 set title "rx"
 set ylabel "deg"
-plot 0 notitle, "diff_iter_1.txt" u 1:($5/3.14159*180) w lp title "1 iteration",\
+plot [][ymin_rot:ymax_rot] 0 notitle, "diff_iter_1.txt" u 1:($5/3.14159*180) w lp title "1 iteration",\
                  "diff_iter_10.txt" u 1:($5/3.14159*180) w lp title "10 iterations",\
 		 "diff_iter_20.txt" u 1:($5/3.14159*180) w lp title "20 iterations",\
 		 "diff_iter_100.txt" u 1:($5/3.14159*180) w lp title "100 iterations" lt -1 lw 3
@@ -40,7 +44,7 @@ plot 0 notitle, "diff_iter_1.txt" u 1:($5/3.14159*180) w lp title "1 iteration",
 set output "ry.png"
 set title "ry"
 set ylabel "deg"
-plot 0 notitle, "diff_iter_1.txt" u 1:($6/3.14159*180) w lp title "1 iteration",\
+plot [][ymin_rot:ymax_rot] 0 notitle, "diff_iter_1.txt" u 1:($6/3.14159*180) w lp title "1 iteration",\
                  "diff_iter_10.txt" u 1:($6/3.14159*180) w lp title "10 iterations",\
 		 "diff_iter_20.txt" u 1:($6/3.14159*180) w lp title "20 iterations",\
 		 "diff_iter_100.txt" u 1:($6/3.14159*180) w lp title "100 iterations" lt -1 lw 3
@@ -48,7 +52,7 @@ plot 0 notitle, "diff_iter_1.txt" u 1:($6/3.14159*180) w lp title "1 iteration",
 set output "rz.png"
 set title "rz"
 set ylabel "deg"
-plot 0 notitle, "diff_iter_1.txt" u 1:($7/3.14159*180) w lp title "1 iteration",\
+plot [][ymin_rot:ymax_rot] 0 notitle, "diff_iter_1.txt" u 1:($7/3.14159*180) w lp title "1 iteration",\
                  "diff_iter_10.txt" u 1:($7/3.14159*180) w lp title "10 iterations",\
 		 "diff_iter_20.txt" u 1:($7/3.14159*180) w lp title "20 iterations",\
 		 "diff_iter_100.txt" u 1:($7/3.14159*180) w lp title "100 iterations" lt -1 lw 3
